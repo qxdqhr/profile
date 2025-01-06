@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 interface HomeProps {
+   homeConfig:HomeConfig
+}
+interface HomeConfig{
     title: string;
     subtitle: string;
     buttons: Array<{
@@ -10,7 +13,8 @@ interface HomeProps {
     imageSrc: string;
 }
 
-const Home: React.FC<HomeProps> = ({ title, subtitle, buttons, imageSrc }) => {
+const Home: React.FC<HomeProps> = ({ homeConfig }) => {
+    const { title, subtitle, buttons, imageSrc } = homeConfig;
     const [displayText, setDisplayText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 

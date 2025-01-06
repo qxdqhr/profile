@@ -12,8 +12,12 @@ interface Timeline {
     direction?: 'vertical' | 'horizontal';
 }
 
-interface TimelineProps {
+interface TimelineConfig {
     timelines: Timeline[];
+}
+
+interface TimelineProps {
+    timelineConfig: TimelineConfig;
 }
 
 const TimelineContent: React.FC<{ item: TimelineItem }> = ({ item }) => (
@@ -48,9 +52,9 @@ const SingleTimeline: React.FC<{ timeline: Timeline }> = ({ timeline }) => (
     </div>
 );
 
-const Timeline: React.FC<TimelineProps> = ({ timelines }) => (
+const Timeline: React.FC<TimelineProps> = ({ timelineConfig }) => (
     <div className="timelines">
-        {timelines.map((timeline, index) => (
+        {timelineConfig.timelines.map((timeline, index) => (
             <SingleTimeline key={index} timeline={timeline} />
         ))}
     </div>
