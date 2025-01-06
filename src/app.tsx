@@ -16,7 +16,7 @@ const config = {
             { text: '查看作品', link: '#projects' },
             { text: '联系我', link: '#contact' },
         ],
-        imageSrc: './src/assets/images/home.webp',
+        imageSrc: '/images/home.webp',
     },
     // 导航配置
     navConfig: {
@@ -103,7 +103,7 @@ const config = {
                 id: '1',
                 title: '个人博客系统',
                 description: '使用 React + TypeScript 开发的个人博客系统，支持文章管理、评论系统等功能',
-                image: '/path/to/blog-image.jpg',
+                image: '/images/blog-image.jpg',
                 tags: ['React', 'TypeScript', 'Node.js'],
                 link: 'https://github.com/yourusername/blog'
             },
@@ -111,7 +111,7 @@ const config = {
                 id: '2',
                 title: '在线聊天应用',
                 description: '基于 WebSocket 的实时聊天应用，支持群聊和私聊功能',
-                image: '/path/to/chat-image.jpg',
+                image: '/images/chat-image.jpg',
                 tags: ['WebSocket', 'React', 'Express'],
                 link: 'https://github.com/yourusername/chat'
             },
@@ -119,7 +119,7 @@ const config = {
                 id: '3',
                 title: '在线聊天应用',
                 description: '基于 WebSocket 的实时聊天应用，支持群聊和私聊功能',
-                image: '/path/to/chat-image.jpg',
+                image: '/images/chat-image.jpg',
                 tags: ['WebSocket', 'React', 'Express'],
                 link: 'https://github.com/yourusername/chat'
             },
