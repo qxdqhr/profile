@@ -34,14 +34,14 @@ const TimelineContent: React.FC<{ item: TimelineItem }> = ({ item }) => (
 );
 
 const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => (
-    <div className={`timeline__item ${(!item.title && !item.description) ? 'timeline__item--date-only' : ''}`}>
+    <div className={`timeline__item ${(!item.title && !item.description) ? 'date-only' : ''}`}>
         <div className="timeline__date">{item.date}</div>
         {(item.title || item.description) && <TimelineContent item={item} />}
     </div>
 );
 
 const SingleTimeline: React.FC<{ timeline: Timeline }> = ({ timeline }) => (
-    <div className={`timeline ${timeline.direction === 'horizontal' ? 'timeline--horizontal' : ''}`}>
+    <div className={`timeline ${timeline.direction === 'horizontal' ? 'horizontal' : 'vertical'}`}>
         {timeline.items.map((item, index) => (
             <TimelineItem key={index} item={item} />
         ))}

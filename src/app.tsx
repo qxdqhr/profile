@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NavbarToggle from './components/NavbarToggle';
 import Timeline from './components/Timeline';
+import CollisionBalls from './components/CollisionBalls';
 
 // 导航配置
 const navConfig = {
@@ -114,7 +115,12 @@ const App: FC = () => {
                 <div className="content-wrapper">
                     <Home {...homeConfig} />
                     <Timeline timelines={timelineConfig.timelines} />
-
+                    <CollisionBalls 
+                        weights={[10, 20, 15, 30, 25]}
+                        width={800}
+                        height={600}
+                        colors={['#FFB6B9', '#FAE3D9', '#BBDED6', '#61C0BF']}
+                    />
                     <Section id="projects" title="项目展示">
                         <p>这里展示我的项目...</p>
                     </Section>
@@ -124,6 +130,13 @@ const App: FC = () => {
                     </Section>
 
                     <Section id="experience" title="经历" />
+
+                    <CollisionBalls 
+                        weights={[10, 20, 15, 30, 25]}
+                        width={800}
+                        height={600}
+                        colors={['#FFB6B9', '#FAE3D9', '#BBDED6', '#61C0BF']}
+                    />
                 </div>
             </div>
         </div>
