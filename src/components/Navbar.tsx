@@ -72,10 +72,15 @@ const Navbar: React.FC<NavbarProps> = ({ direction = 'horizontal', items, isOpen
     const [navbarWidth, setNavbarWidth] = useState<number>(0);
 
     useEffect(() => {
+        console.log('aaa');
+
+        console.log(navbarRef.current);
+
         if (navbarRef.current) {
             const width = navbarRef.current.offsetWidth;
             setNavbarWidth(width);
             document.documentElement.style.setProperty('--navbar-width', `${width}px`);
+            console.log(width);
         }
     }, [isOpen, direction]);
 

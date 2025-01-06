@@ -48,7 +48,7 @@ const homeConfig = {
 const timelineConfig = {
     timelines: [
         {
-            direction: 'horizontal',
+            direction: 'horizontal' as const,
             items: [
                 { date: 'Career Start' },
                 {
