@@ -1,63 +1,79 @@
-import React from 'react';
+import React from "react";
 
-interface TimelineItem {
-    date: string;
-    title?: string;
-    description?: string;
-    tags?: string[];
+interface TimelineItemInterface {
+  date: string;
+  title?: string;
+  description?: string;
+  tags?: string[];
 }
 
-interface Timeline {
-    items: TimelineItem[];
-    direction?: 'vertical' | 'horizontal';
+interface TimelineInterface {
+  items: TimelineItemInterface[];
+  direction?: "vertical" | "horizontal";
 }
 
 interface TimelineConfig {
-    timelines: Timeline[];
+  timelines: TimelineInterface[];
 }
 
 interface TimelineProps {
-    timelineConfig: TimelineConfig;
+  timelineConfig: TimelineConfig;
 }
 
-const TimelineContent: React.FC<{ item: TimelineItem }> = ({ item }) => (
-    <div className="timeline__content">
-        <div className="timeline__dot" />
-        {item.title && <h3 className="timeline__title">{item.title}</h3>}
-        {item.description && <p className="timeline__description">{item.description}</p>}
-        {item.tags && (
-            <div className="timeline__tags">
-                {item.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="timeline__tag">
-                        {tag}
-                    </span>
-                ))}
-            </div>
-        )}
-    </div>
-);
-
-const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => (
-    <div className={`timeline__item ${(!item.title && !item.description) ? 'date-only' : ''}`}>
-        <div className="timeline__date">{item.date}</div>
-        {(item.title || item.description) && <TimelineContent item={item} />}
-    </div>
-);
-
-const SingleTimeline: React.FC<{ timeline: Timeline }> = ({ timeline }) => (
-    <div className={`timeline ${timeline.direction === 'horizontal' ? 'horizontal' : 'vertical'}`}>
-        {timeline.items.map((item, index) => (
-            <TimelineItem key={index} item={item} />
+const TimelineContent: React.FC<{ item: TimelineItemInterface }> = ({
+  item,
+}) => (
+  <div className="timeline__content">
+    <div className="timeline__dot" />
+    {item.title && <h3 className="timeline__title">{item.title}</h3>}
+    {item.description && (
+      <p className="timeline__description">{item.description}</p>
+    )}
+    {item.tags && (
+      <div className="timeline__tags">
+        {item.tags.map((tag) => (
+          <span key={`${item.date}-${tag}`} className="timeline__tag">
+            {tag}
+          </span>
         ))}
-    </div>
+      </div>
+    )}
+  </div>
+);
+
+const TimelineItem: React.FC<{ item: TimelineItemInterface }> = ({ item }) => (
+  <div
+    className={`timeline__item ${!item.title && !item.description ? "date-only" : ""}`}
+  >
+    <div className="timeline__date">{item.date}</div>
+    {(item.title || item.description) && <TimelineContent item={item} />}
+  </div>
+);
+
+const SingleTimeline: React.FC<{ timeline: TimelineInterface }> = ({
+  timeline,
+}) => (
+  <div
+    className={`timeline ${timeline.direction === "horizontal" ? "horizontal" : "vertical"}`}
+  >
+    {timeline.items.map((item) => (
+      <TimelineItem
+        key={`${item.date}-${item.title || "no-title"}`}
+        item={item}
+      />
+    ))}
+  </div>
 );
 
 const Timeline: React.FC<TimelineProps> = ({ timelineConfig }) => (
-    <div className="timelines">
-        {timelineConfig.timelines.map((timeline, index) => (
-            <SingleTimeline key={index} timeline={timeline} />
-        ))}
-    </div>
+  <div className="timelines">
+    {timelineConfig.timelines.map((timeline, index) => (
+      <SingleTimeline
+        key={`timeline-${index}-${timeline.direction || "vertical"}`}
+        timeline={timeline}
+      />
+    ))}
+  </div>
 );
 
-export default Timeline; 
+export default Timeline;

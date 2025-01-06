@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface Project {
   id: string;
@@ -21,13 +21,15 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   };
 
   const prevSlide = () => {
-    setActiveIndex((current) => (current - 1 + projects.length) % projects.length);
+    setActiveIndex(
+      (current) => (current - 1 + projects.length) % projects.length,
+    );
   };
 
   const getCardStyle = (index: number) => {
     const diff = (index - activeIndex + projects.length) % projects.length;
     const position = diff > projects.length / 2 ? diff - projects.length : diff;
-    
+
     return {
       transform: `
         translateX(${position * -50}%) 
@@ -50,7 +52,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`project-card ${index === activeIndex ? 'active' : ''}`}
+              className={`project-card ${index === activeIndex ? "active" : ""}`}
               style={getCardStyle(index)}
             >
               <div className="card-image">
@@ -67,7 +69,11 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
                   ))}
                 </div>
                 {project.link && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     查看项目
                   </a>
                 )}
@@ -83,4 +89,4 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   );
 };
 
-export default ProjectCarousel; 
+export default ProjectCarousel;

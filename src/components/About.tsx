@@ -1,13 +1,17 @@
-import React from 'react';
-import Timeline from './Timeline';
-import CollisionBalls from './CollisionBalls';
+import React from "react";
+
+import CollisionBalls from "./CollisionBalls";
+import Timeline from "./Timeline";
 
 interface AboutProps {
-  timelineConfig: any;  // 使用实际的类型
-  collisionBallsConfig: any;  // 使用实际的类型
+  timelineConfig: any; // 使用实际的类型
+  collisionBallsConfig: any; // 使用实际的类型
 }
 
-const About: React.FC<AboutProps> = ({ timelineConfig, collisionBallsConfig }) => {
+const About: React.FC<AboutProps> = ({
+  timelineConfig,
+  collisionBallsConfig,
+}) => {
   return (
     <div id="about" className="about-container">
       <div className="module-title h2">关于我</div>
@@ -19,4 +23,4 @@ const About: React.FC<AboutProps> = ({ timelineConfig, collisionBallsConfig }) =
   );
 };
 
-export default About; 
+export default About;

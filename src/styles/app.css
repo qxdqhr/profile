@@ -38,14 +38,14 @@ body {
         .about-container {
           display: flex;
           flex-direction: column;
-          margin: 5%;
           align-items: center;
+          margin: 5%;
 
           .about-content {
             display: flex;
-            width: 100%;
-            justify-content: space-between;
             gap: 2rem;
+            justify-content: space-between;
+            width: 100%;
 
             > * {
               flex: 1;
@@ -86,20 +86,20 @@ body {
 }
 
 .module-title.h2 {
-  color: #8b7355;
-  font-size: 2rem;
-  margin-bottom: 2rem;
   position: relative;
   padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #8b7355;
 
   &::after {
-    content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
     width: 60px;
     height: 3px;
+    content: "";
     background: linear-gradient(to right, transparent, #d4b483, transparent);
-  } 
+    transform: translateX(-50%);
+  }
 }

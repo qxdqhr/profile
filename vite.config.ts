@@ -1,10 +1,10 @@
-import type { ConfigEnv, UserConfig } from 'vite';
+import type { ConfigEnv, UserConfig } from "vite";
 
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
-import { createConfig } from './scripts';
+import { createConfig } from "./scripts";
 
 export default defineConfig((params: ConfigEnv): UserConfig => {
-    const config = createConfig(params);
-    return config;
+  const config = createConfig(params);
+  return config;
 });
