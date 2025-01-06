@@ -1,0 +1,58 @@
+html,
+body,
+#root,
+.ant-app {
+    @apply tw-w-full tw-flex tw-p-0 tw-m-0;
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden auto;
+}
+
+html {
+    font-family: var(--font-family-standard);
+}
+
+body {
+    font-size: var(--font-size-base);
+}
+
+.main-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff9e6;
+
+    &.open {
+        &.vertical {
+            width: calc(100% - var(--navbar-width));
+            margin-left: var(--navbar-width);
+            transition:
+                margin-left 0.3s ease,
+                width 0.3s ease;
+
+            .content-wrapper {
+                width: 100%;
+                overflow: hidden auto;
+            }
+        }
+
+        &.horizontal {
+            width: 100%;
+            margin-top: var(--navbar-height);
+            margin-left: 0;
+
+            .content-wrapper {
+                width: 100%;
+                overflow: hidden auto;
+            }
+        }
+    }
+
+    &.closed {
+        &.vertical {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}
