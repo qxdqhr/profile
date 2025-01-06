@@ -4,9 +4,6 @@ import $styles from './app.module.css';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NavbarToggle from './components/NavbarToggle';
-import Timeline from './components/Timeline';
-import CollisionBalls from './components/CollisionBalls';
-import { text } from 'stream/consumers';
 import ProjectCarousel from './components/ProjectCarousel';
 import About from './components/About';
 
